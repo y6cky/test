@@ -1,0 +1,233 @@
+
+
+@font-face {
+  font-family: 'beachday';
+  src: url(../Fonts/beachday.regular.ttf)
+}
+
+html {
+    box-sizing:border-box;
+}
+
+*, *:before, *:after {
+    box-sizing:inherit;
+}
+
+img {
+    max-width: 100%;
+  
+}
+
+.number { font-size: 50px;
+  
+
+}
+
+p.bubble {
+	position: relative;
+	width: 400px;
+	text-align: center;
+	line-height: 1.4em;
+	margin: 20px auto;
+	background-color: #fff;
+	/* border: 3px solid rgb(85, 65, 46); */
+	border-radius: 30px;
+	font-family: "felt-tip-woman";
+	padding: 10px;
+	font-size: 25px;
+}
+
+p.bubble:before,
+p.bubble:after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+p.speech:before {
+	left: 30px;
+	bottom: -30px;
+	border: 15px solid;
+	border-color: #333 transparent transparent #333;
+}
+
+p.speech:after {
+	left: 30px;
+	bottom: -30px;
+	border: 15px solid;
+	border-color: #fff transparent transparent #fff;
+}
+
+
+
+
+.click-zoom input[type="checkbox"] {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.click-zoom label {
+  cursor: zoom-in;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+.click-zoom img {
+  width: 300px;
+  transition: transform 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.click-zoom input[type="checkbox"]:checked ~ img {
+  transform: scale(2);
+  cursor: zoom-out;
+  position: relative;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+  
+  
+  /* 
+Notes on new terms in the styles below:
+-vw stands for "viewport width" and the number represents a percentage of that width. "10vw" is 10%
+of the viewport's width
+-span is different than the span we learned about when discussing HTML. here it  means that given 
+grid column extends from an initial grid line to an second grid line, so "1 / span 5" means the column 
+extends from grid line one to grid line five. 
+*/
+
+
+
+
+
+
+h1 {
+  font-family: 'beachday';
+  letter-spacing: 3px;
+    text-decoration-line: underline;
+  text-decoration-style:unset;
+  font-size: 35px;
+  justify-content: center;
+  
+}
+h2 {
+  font-family: 'beachday';
+  letter-spacing: 3px;
+  font-size: 25px;
+}
+body {
+  font-family: 'beachday';
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 10vw 30vw 10vw;  */
+  grid-gap: 1em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+text-align: left;
+  /* thickness (5px), style (solid), color (black) */
+  /* border: 8px solid rgb(255, 244, 162); 
+  margin: 2px;
+  min-height: 100vh;
+  box-sizing: border-box; 
+  border-style:dotted; */
+background-color: rgb(255, 255, 208); 
+
+}
+
+header, footer {
+  grid-column: 1 / span 5;
+  
+}
+h2 {  text-align: center}
+p {
+    text-align: left
+}
+h3 {
+    text-align: center
+}
+main {
+  grid-column: 1 / span 3;
+  align-items: right;
+}
+
+aside {
+  grid-column: span 2;
+}
+
+/* 
+this is a media query that says "when the width of the viewport exceeds 700px, activate the following styles",
+then, the grid column span for the main and aside elements changes from 1 / span 3 and span 2, respectively, to 1 / span 5 for both elements
+*/
+
+@media (max-width: 700px) {
+  
+  main, aside {
+    grid-column: 1 / span 5;
+  }
+}
+@media (max-width: 200px) {
+  .top-left-fixed {
+    visibility: hidden;
+  }
+}
+  
+  
+
+/* Demo Specific Styles */
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+aside, footer {
+    border-radius: 40px 40px 30px 30px; 
+  background-color: #ffed9d;
+  color: #55412e;
+  padding: 40px;
+
+  /* background: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: right; */
+}
+header, main {
+   border-radius: 40px 40px 30px 30px; 
+  background-color: #ffed9d;
+  color: rgb(85, 65, 46);
+  padding: 40px;
+    /* text-align: center; */
+  
+  /* background: #eaeaea; */
+  display: flex;
+  flex-direction: column;
+   /* align-items: center;
+  justify-content: center;  */
+}
+main,footer, aside, header {  border: 6px solid rgb(85, 65, 46); 
+  margin: 2px;
+  min-height: 30vh;
+  box-sizing: border-box; 
+  border-style:dotted;}
+
+ footer {
+  height: 20vw;
+  text-align: left;
+}
+header {
+  height: 10vw;
+  text-align: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  footer { height: 30vw; }
+}
